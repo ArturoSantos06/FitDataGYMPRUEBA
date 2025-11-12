@@ -7,7 +7,7 @@ export default defineConfig({
 
   // ¡Importante! La base desde donde Django servirá los archivos
   // (Netlify ignora esto, pero es bueno tenerlo consistente)
-  base: '/static/', 
+  base: '/', 
 
   build: {
     manifest: true,  
