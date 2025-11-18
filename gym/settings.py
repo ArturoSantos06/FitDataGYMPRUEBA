@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-_*o4hd8w_83i4di_k@5_%zg_==y3*&%0b8_bohf&iv$y^hv^8d
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['fitdata-api.onrender.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
