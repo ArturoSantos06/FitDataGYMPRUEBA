@@ -52,7 +52,7 @@ function Login({ onLogin }) {
       <div className="text-center mb-6 mt-6">
         {/* Logo */}
         <img src="/fitdata-logo.png" alt="FitData GYM Logo" className="mx-auto h-24 w-auto mb-4 drop-shadow-lg" />
-        <h3 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400">Iniciar Sesión</h3>
+        <h3 className="text-3xl font-bold text-transparent bg-clip-text bg-linear-to-r from-purple-400 to-blue-400">Iniciar Sesión</h3>
         <p className="text-gray-400 mt-2">Acceso al Panel de Administración</p>
       </div>
       
@@ -83,7 +83,7 @@ function Login({ onLogin }) {
         {error && <p className="text-red-400 text-sm mt-3 text-center">{error}</p>}
 
         <div className="flex items-baseline justify-between mt-6">
-          <button className="px-6 py-2 text-lg text-white font-bold bg-gradient-to-r from-purple-600 to-blue-600 rounded-lg hover:from-purple-700 hover:to-blue-700 transition-all w-full shadow-lg">
+          <button className="px-6 py-2 text-lg text-white font-bold bg-linear-to-r from-purple-600 to-blue-600 rounded-lg hover:from-purple-700 hover:to-blue-700 transition-all w-full shadow-lg">
             Entrar
           </button>
         </div>
