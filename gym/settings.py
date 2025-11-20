@@ -144,14 +144,14 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
-
-TIME_ZONE = 'UTC'
-
+# Configuración de idioma y codificación
+LANGUAGE_CODE = 'es-mx' # O 'es-es'
+TIME_ZONE = 'America/Mexico_City' # Ajusta a tu zona
 USE_I18N = True
-
 USE_TZ = True
 
+# Asegurar UTF-8 en la respuesta JSON
+DEFAULT_CHARSET = 'utf-8'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
