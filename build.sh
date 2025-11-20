@@ -24,3 +24,7 @@ python manage.py migrate
 # 5. CREAR SUPERUSUARIO (Automático)
 echo "Verificando superusuario..."
 python create_superuser.py
+
+# 6. CARGAR DATOS 
+echo "Cargando datos desde el archivo..."
+python manage.py loaddata datos_gym.json
