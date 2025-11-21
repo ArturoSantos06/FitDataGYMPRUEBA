@@ -28,3 +28,6 @@ python create_superuser.py
 # 6. CARGAR DATOS 
 echo "Cargando datos desde el archivo..."
 python manage.py loaddata datos_gym.json
+
+echo "Corrigiendo errores de texto..."
+python fix_typos.py
