@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 // --- MODAL DE SELECCIÓN ---
@@ -18,7 +18,10 @@ function UserSelectionModal({ onClose }) {
 
         <div className="space-y-4">
           <button 
-            onClick={() => navigate('/admin')}
+            onClick={() => {
+              localStorage.removeItem('token'); 
+              navigate('/admin');
+            }}
             className="w-full group flex items-center justify-between p-5 bg-gray-800 border border-gray-600 rounded-xl hover:border-purple-500 hover:bg-gray-700 transition-all duration-300"
           >
             <div className="text-left">
@@ -538,6 +541,12 @@ function FooterSection() {
 function LandingPage() {
   const [showModal, setShowModal] = useState(false);
 
+  // NUEVA LÓGICA DE SEGURIDAD
+  // Borra el token al cargar la página para evitar reingreso sin contraseña
+  useEffect(() => {
+    localStorage.removeItem('token');
+  }, []);
+
   return (
     <div className="bg-black text-gray-100 font-sans scroll-smooth">
       
@@ -547,11 +556,11 @@ function LandingPage() {
       <NewsSection />
       <ContactSection />
       <FooterSection />
+      
       {showModal && <UserSelectionModal onClose={() => setShowModal(false)} />}
 
     </div>
   );
 }
-
 
 export default LandingPage;

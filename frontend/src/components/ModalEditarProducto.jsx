@@ -37,7 +37,7 @@ const ModalEditarProducto = ({ isOpen, onClose, producto, onProductoActualizado 
         } catch (error) { console.error(error); }
     };
 
-    // Reusamos estilos oscuros
+    // Reusamos estilos
     const styles = {
         overlay: { position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, backgroundColor: 'rgba(0,0,0,0.8)', display: 'flex', justifyContent: 'center', alignItems: 'center', zIndex: 1000, backdropFilter: 'blur(3px)' },
         modal: { background: '#1e293b', padding: '30px', borderRadius: '12px', width: '400px', border: '1px solid #334155', color: 'white', position: 'relative', boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.5)' },

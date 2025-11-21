@@ -8,7 +8,8 @@ from .models import Producto, Venta
 class MembershipTypeSerializer(serializers.ModelSerializer):
     class Meta:
         model = MembershipType
-        fields = ['id', 'name', 'price', 'duration_days']
+        # AGREGAMOS 'image' A LA LISTA
+        fields = ['id', 'name', 'price', 'duration_days', 'image']
 
 
 # Serializer de asignación de membresía

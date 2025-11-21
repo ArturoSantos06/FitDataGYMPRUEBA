@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 
-// Componentes existentes
+// Componentes existentes (Admin)
 import Login from './components/Login';
 import Navbar from './components/Navbar';
-import Home from './components/Home'; 
+import Home from './components/Home'; // El Dashboard del Admin
 import RegisterUser from './components/RegisterUser';
 import AssignMembership from './components/AssignMembership';
 import UserMembershipList from './components/UserMembershipList';
@@ -19,6 +19,8 @@ import ClientPortal from './components/ClientPortal';
 function AdminArea() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  
+  const [refreshList, setRefreshList] = useState(0);
 
   useEffect(() => {
     const token = localStorage.getItem('token');
@@ -46,20 +48,34 @@ function AdminArea() {
     );
   }
 
-  // Si SÍ es Admin autenticado, mostramos el Dashboard
   return (
     <div className="bg-gray-900 text-gray-100 min-h-screen flex flex-col">
       <Navbar onLogout={handleLogout} />
-      <main className="grow container mx-auto p-6 md:p-8">
+      <main className="flex-grow container mx-auto p-6 md:p-8">
         <Routes>
-          {/* Rutas Hijas del Admin (Sin la barra '/' al inicio) */}
+          
+          {/* 1. Dashboard Principal */}
           <Route path="/" element={<Home />} />
+          
+          {/* 2. Registrar Clientes Nuevos */}
           <Route path="registrar" element={<RegisterUser />} />
-          <Route path="asignar" element={<div className="space-y-6"><AssignMembership /><UserMembershipList /></div>} />
+          
+          {/* 3. Asignar/Renovar Membresías */}
+          <Route path="asignar" element={
+            <div className="space-y-8">
+               <AssignMembership onSuccess={() => setRefreshList(prev => prev + 1)} />
+               
+               <UserMembershipList refreshTrigger={refreshList} />
+            </div>
+          } />
+          
+          {/* 4. Configuración de Tipos de Membresía */}
           <Route path="configuracion" element={<MembershipAdmin />} />
+          
+          {/* 5. Punto de Venta */}
           <Route path="ventas" element={<PuntoDeVenta />} /> 
           
-          {/* Si escriben una ruta admin rara, volver al home del admin */}
+          {/* Si escriben una ruta admin desconocida, volver al home del admin */}
           <Route path="*" element={<Navigate to="/admin" />} />
         </Routes>
       </main>

@@ -31,10 +31,10 @@ function Navbar({ onLogout }) {
               Registrar Clientes
             </Link>
             <Link to="/admin/asignar" className={`px-3 py-2 rounded-lg text-sm font-semibold transition-all duration-200 ${isActive('/admin/asignar')}`}>
-              Asignar Membresías
+              Renovar Membresías
             </Link>
             <Link to="/admin/configuracion" className={`px-3 py-2 rounded-lg text-sm font-semibold transition-all duration-200 ${isActive('/admin/configuracion')}`}>
-              Configurar Tipos
+              Creación de Membresía
             </Link>
             <Link to="/admin/ventas" className={`px-3 py-2 rounded-lg text-sm font-semibold transition-all duration-200 ${isActive('/admin/ventas')}`}>
               Punto de Venta

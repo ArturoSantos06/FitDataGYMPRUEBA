@@ -4,11 +4,13 @@ from datetime import timedelta
 from django.utils import timezone 
 import uuid
 
-# Modelo existente para el tipo de membresía (el que creaste la semana pasada)
+# Modelo existente para el tipo de membresía 
 class MembershipType(models.Model):
     name = models.CharField(max_length=150, unique=True, verbose_name="Nombre")
     price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name="Precio")
     duration_days = models.IntegerField(verbose_name="Duración (en días)")
+    
+    image = models.ImageField(upload_to='memberships/', blank=True, null=True, verbose_name="Imagen de Tarjeta")
 
     def __str__(self):
         return f"{self.name} (${self.price})"
@@ -74,7 +76,7 @@ class Venta(models.Model):
     folio = models.CharField(max_length=10, unique=True, blank=True, null=True)
 
     def save(self, *args, **kwargs):
-        # Si no tiene folio, generamos uno único (Ej: V-A1B2)
+        # Si no tiene folio, generamos uno único
         if not self.folio:
             self.folio = "V-" + str(uuid.uuid4())[:6].upper()
         super().save(*args, **kwargs)

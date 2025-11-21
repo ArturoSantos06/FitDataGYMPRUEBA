@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 
-function UserMembershipList() {
+// Recibimos 'refreshTrigger' para saber cuándo recargar
+function UserMembershipList({ refreshTrigger }) {
   const [assignments, setAssignments] = useState([]);
+  const [searchTerm, setSearchTerm] = useState(''); // Estado para el buscador
   const API_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000';
 
   const fetchAssignments = async () => {
@@ -22,15 +24,44 @@ function UserMembershipList() {
 
   useEffect(() => {
     fetchAssignments();
-  }, []);
+  }, [refreshTrigger]); // Se ejecuta cuando cambia el trigger
+
+  // Lógica de Filtrado
+  const filteredAssignments = assignments.filter(item => {
+    const search = searchTerm.toLowerCase();
+    const estado = item.is_active ? 'activo' : 'vencido';
+    const nombreCompleto = item.user_full_name ? item.user_full_name.toLowerCase() : '';
+    
+    return (
+        item.user_name.toLowerCase().includes(search) ||
+        nombreCompleto.includes(search) ||
+        item.membership_name.toLowerCase().includes(search) ||
+        estado.includes(search)
+    );
+  });
 
   return (
     <div className="bg-gray-800 p-6 rounded-xl shadow-xl mt-6 border-t-4 border-teal-500 text-gray-100">
-      <div className="flex justify-between items-center mb-4">
-        <h2 className="text-2xl font-bold text-transparent bg-clip-text bg-linear-to-r from-teal-400 to-green-400">Estado de Membresías Asignadas</h2>
+      <div className="flex flex-col md:flex-row justify-between items-center mb-6 gap-4">
+        <h2 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-green-400">
+          Estado de Membresías
+        </h2>
+        
+        {/* BUSCADOR */}
+        <div className="relative w-full md:w-1/3">
+            <input 
+                type="text" 
+                placeholder="Buscar por usuario, nombre, tipo o estado..." 
+                className="w-full bg-slate-900 border border-slate-600 text-white rounded-lg py-2 px-4 pl-10 focus:outline-none focus:border-teal-500 transition-colors placeholder-slate-500"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+            />
+            <span className="absolute left-3 top-2.5 text-slate-500">🔍</span>
+        </div>
+
         <button 
           onClick={fetchAssignments}
-          className="text-sm text-teal-400 hover:text-teal-300 font-semibold transition-colors"
+          className="text-sm text-teal-400 hover:text-teal-300 font-semibold transition-colors whitespace-nowrap"
         >
           🔄 Actualizar
         </button>
@@ -48,17 +79,17 @@ function UserMembershipList() {
             </tr>
           </thead>
           <tbody className="text-gray-200 text-sm font-light">
-            {assignments.map((item) => (
+            {filteredAssignments.map((item) => (
               <tr key={item.id} className="border-b border-gray-700 hover:bg-gray-700 transition-colors">
                 <td className="py-3 px-6 text-left">
-               <div className="flex flex-col">
-                <span className="font-bold text-white text-sm">{item.user_name}</span>
-                {item.user_full_name && (
-               <span className="text-xs text-gray-400 uppercase tracking-wide">
-                {item.user_full_name}
-              </span>
-                )}
-                 </div>
+                  <div className="flex flex-col">
+                    <span className="font-bold text-white text-sm">{item.user_name}</span>
+                    {item.user_full_name && (
+                      <span className="text-xs text-gray-400 uppercase tracking-wide">
+                        {item.user_full_name}
+                      </span>
+                    )}
+                  </div>
                 </td>
                 <td className="py-3 px-6">
                   {item.membership_name}
@@ -66,7 +97,7 @@ function UserMembershipList() {
                 <td className="py-3 px-6">
                   {item.start_date}
                 </td>
-                <td className="py-3 px-6">
+                <td className="py-3 px-6 font-mono text-slate-300">
                   {item.end_date}
                 </td>
                 <td className="py-3 px-6 text-center">
@@ -83,10 +114,10 @@ function UserMembershipList() {
               </tr>
             ))}
             
-            {assignments.length === 0 && (
+            {filteredAssignments.length === 0 && (
               <tr>
-                <td colSpan="5" className="text-center py-4 text-gray-400">
-                  No hay membresías asignadas aún.
+                <td colSpan="5" className="text-center py-6 text-gray-500 italic">
+                  {searchTerm ? 'No se encontraron resultados para tu búsqueda.' : 'No hay membresías asignadas aún.'}
                 </td>
               </tr>
             )}

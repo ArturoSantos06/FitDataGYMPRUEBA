@@ -6,10 +6,11 @@ from .views import (
     UserViewSet, 
     ProductoViewSet, 
     VentaViewSet,
-    crear_venta
+    crear_venta,
+    register_user_with_membership 
 )
 
-# 1. Configuración del Router
+# 1. Configuración del Router (Rutas automáticas CRUD)
 router = DefaultRouter()
 router.register(r'memberships', MembershipTypeViewSet, basename='membershiptype')
 router.register(r'user-memberships', UserMembershipViewSet, basename='user-membership')
@@ -19,9 +20,14 @@ router.register(r'ventas', VentaViewSet, basename='venta')
 
 # 2. Lista de URLs Unificada
 urlpatterns = [
-    # Rutas manuales
+    # --- Rutas Manuales (Funciones específicas) ---
+    
+    # 1. Procesar Venta (Punto de Venta)
     path('crear-venta/', crear_venta, name='crear-venta'),
     
-    # Rutas automáticas del Router
+    # 2. Registrar Usuario y Asignar Membresía en un paso
+    path('users/register-with-membership/', register_user_with_membership, name='register-with-membership'),
+    
+    # --- Rutas Automáticas del Router ---
     path('', include(router.urls)),
 ]

@@ -124,7 +124,7 @@ function PuntoDeVenta() {
         // Contenedor Principal con Tailwind
         <div className="p-4 md:p-8 bg-slate-900 min-h-screen text-white">
             
-            <h1 className="text-3xl md:text-4xl font-bold text-center mb-8 text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 uppercase tracking-widest">
+            <h1 className="text-3xl md:text-4xl font-bold text-center mb-8 text-transparent bg-clip-text bg-linear-to-r from-cyan-400 to-blue-500 uppercase tracking-widest">
                 Punto de Venta
             </h1>
             
@@ -230,7 +230,7 @@ function PuntoDeVenta() {
                             
                             <button 
                                 onClick={procesarVenta}
-                                className="w-full py-4 bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white font-bold rounded-xl shadow-lg transform active:scale-95 transition-all"
+                                className="w-full py-4 bg-linear-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white font-bold rounded-xl shadow-lg transform active:scale-95 transition-all"
                             >
                                 COBRAR VENTA
                             </button>
