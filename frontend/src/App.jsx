@@ -51,7 +51,7 @@ function AdminArea() {
   return (
     <div className="bg-gray-900 text-gray-100 min-h-screen flex flex-col">
       <Navbar onLogout={handleLogout} />
-      <main className="flex-grow container mx-auto p-6 md:p-8">
+      <main className="grow container mx-auto p-6 md:p-8">
         <Routes>
           
           {/* 1. Dashboard Principal */}
@@ -75,7 +75,6 @@ function AdminArea() {
           {/* 5. Punto de Venta */}
           <Route path="ventas" element={<PuntoDeVenta />} /> 
           
-          {/* Si escriben una ruta admin desconocida, volver al home del admin */}
           <Route path="*" element={<Navigate to="/admin" />} />
         </Routes>
       </main>

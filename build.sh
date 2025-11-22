@@ -21,10 +21,8 @@ python manage.py collectstatic --no-input
 echo "Corriendo migraciones..."
 python manage.py migrate
 
-# --- CAMBIO DE ORDEN AQUÍ ---
 
-# 5. CARGAR DATOS (PRIMERO cargamos tu respaldo)
-echo "Cargando datos desde el archivo..."
+echo "Cargando datos..."
 python manage.py loaddata datos_gym.json
 
 # 6. CREAR SUPERUSUARIO (DESPUÉS, solo si hace falta)

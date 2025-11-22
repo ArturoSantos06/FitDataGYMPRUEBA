@@ -542,7 +542,6 @@ function LandingPage() {
   const [showModal, setShowModal] = useState(false);
 
   // NUEVA LÓGICA DE SEGURIDAD
-  // Borra el token al cargar la página para evitar reingreso sin contraseña
   useEffect(() => {
     localStorage.removeItem('token');
   }, []);
