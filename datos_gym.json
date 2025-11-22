@@ -1,0 +1,261 @@
+[
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$4So8ph6m5COnrfPxOqphwU$s2zS116tHDYoMfFEYA6uG/3LDjgLXotWtbpteZ3CA3A=",
+    "last_login": "2025-11-12T20:39:47.396Z",
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2025-11-12T20:37:16.133Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 2,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$Jld0cbh1dA47MHUyJ0yanW$qhIPXLmv1EQhX8lA6j7NOSIiw00ZtpT8n3ODh3bWZS8=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "Artsantos",
+    "first_name": "Arturo",
+    "last_name": "Santos Lopez",
+    "email": "santos.lopez@outlook.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-11-18T18:39:27.370Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 3,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$bP89AFHopRWCiKabQ3rvmt$3eVvu+8M/5A2Oc+MZ+L0wa9jTLyzVgOrBBY9QZe66Zo=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "Gina_0326",
+    "first_name": "Joely Georgina",
+    "last_name": "Balam Reyes",
+    "email": "reyesjoely448@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-11-19T23:06:32.257Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 4,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$untpqhYF93EyhzpeVsrhOE$AmFnYcZmGKR/J7Tnm2MHuSf4Z7Kv6oOvpxh9wx71a/o=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "Aldo1",
+    "first_name": "Aldo",
+    "last_name": "Echeverria",
+    "email": "aldo@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-11-20T00:40:52.217Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 5,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$Dzq8D6Qw0lSSDoAfj9ozN3$hwJ3vdRDJV4Qie19Hp9Di8CE6VodTRvf5cIeJ1PFfa0=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "MaferH",
+    "first_name": "Maria Fernanda",
+    "last_name": "Horta Hernandez",
+    "email": "mafer.horta@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-11-21T22:11:42.095Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "authtoken.token",
+  "pk": "8322ae550cfef3e73d40992a1336ece3546f0eee",
+  "fields": {
+    "user": 1,
+    "created": "2025-11-18T17:40:41.054Z"
+  }
+},
+{
+  "model": "gymapp.membershiptype",
+  "pk": 4,
+  "fields": {
+    "name": "Membresía FullData",
+    "price": "4500.00",
+    "duration_days": 365,
+    "image": "memberships/FULLDATA.png"
+  }
+},
+{
+  "model": "gymapp.membershiptype",
+  "pk": 5,
+  "fields": {
+    "name": "Membresía Flex FitData",
+    "price": "500.00",
+    "duration_days": 30,
+    "image": "memberships/FLEX_FITDATA.png"
+  }
+},
+{
+  "model": "gymapp.membershiptype",
+  "pk": 6,
+  "fields": {
+    "name": "FitData Day Pass",
+    "price": "80.00",
+    "duration_days": 0,
+    "image": "memberships/DAY_PASS.png"
+  }
+},
+{
+  "model": "gymapp.membershiptype",
+  "pk": 7,
+  "fields": {
+    "name": "Membresía Study FitData",
+    "price": "250.00",
+    "duration_days": 30,
+    "image": "memberships/STUDY_FITDATA.png"
+  }
+},
+{
+  "model": "gymapp.usermembership",
+  "pk": 4,
+  "fields": {
+    "user": 2,
+    "membership_type": 6,
+    "start_date": "2025-11-21",
+    "end_date": "2025-11-21",
+    "is_active": true
+  }
+},
+{
+  "model": "gymapp.usermembership",
+  "pk": 5,
+  "fields": {
+    "user": 1,
+    "membership_type": 4,
+    "start_date": "2025-11-18",
+    "end_date": "2026-11-18",
+    "is_active": true
+  }
+},
+{
+  "model": "gymapp.usermembership",
+  "pk": 6,
+  "fields": {
+    "user": 3,
+    "membership_type": 6,
+    "start_date": "2025-11-19",
+    "end_date": "2025-11-19",
+    "is_active": false
+  }
+},
+{
+  "model": "gymapp.usermembership",
+  "pk": 7,
+  "fields": {
+    "user": 4,
+    "membership_type": 4,
+    "start_date": "2025-11-20",
+    "end_date": "2026-11-20",
+    "is_active": true
+  }
+},
+{
+  "model": "gymapp.usermembership",
+  "pk": 12,
+  "fields": {
+    "user": 5,
+    "membership_type": 5,
+    "start_date": "2025-11-21",
+    "end_date": "2025-12-21",
+    "is_active": true
+  }
+},
+{
+  "model": "gymapp.producto",
+  "pk": 1,
+  "fields": {
+    "nombre": "Agua Ciel Purificada 1L",
+    "precio": "35.00",
+    "stock": 2,
+    "imagen": "productos/botella_ciel-removebg-preview.png"
+  }
+},
+{
+  "model": "gymapp.producto",
+  "pk": 2,
+  "fields": {
+    "nombre": "Agua Ciel Purificada 600ml",
+    "precio": "20.00",
+    "stock": 0,
+    "imagen": "productos/aguaciel_1024x-removebg-preview_MjMLY1C.png"
+  }
+},
+{
+  "model": "gymapp.producto",
+  "pk": 3,
+  "fields": {
+    "nombre": "Gold Standard 100% Whey 5 Lb",
+    "precio": "1400.00",
+    "stock": 2,
+    "imagen": "productos/optimun-gold-standard-100-whey-5lb-removebg-preview.png"
+  }
+},
+{
+  "model": "gymapp.venta",
+  "pk": 7,
+  "fields": {
+    "cliente": null,
+    "fecha": "2025-11-20T20:29:09.147Z",
+    "total": "40.00",
+    "metodo_pago": "EFECTIVO",
+    "detalle_productos": "[{'id': 2, 'cantidad': 2, 'nombre': 'Agua Ciel Purificada 600ml', 'precio': 20}]",
+    "folio": "V-8F1051"
+  }
+},
+{
+  "model": "gymapp.venta",
+  "pk": 8,
+  "fields": {
+    "cliente": 3,
+    "fecha": "2025-11-20T21:15:13.520Z",
+    "total": "70.00",
+    "metodo_pago": "EFECTIVO",
+    "detalle_productos": "[{'id': 1, 'cantidad': 2, 'nombre': 'Agua Ciel Purificada 1L', 'precio': 35}]",
+    "folio": "V-335C5C"
+  }
+},
+{
+  "model": "gymapp.venta",
+  "pk": 9,
+  "fields": {
+    "cliente": 5,
+    "fecha": "2025-11-21T22:11:42.411Z",
+    "total": "500.00",
+    "metodo_pago": "EFECTIVO",
+    "detalle_productos": "[{'nombre': 'Membresía Flex FitData', 'precio': 500.00, 'cantidad': 1}]",
+    "folio": "V-03A1F1"
+  }
+}
+]

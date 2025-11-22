@@ -10,7 +10,7 @@ from django.contrib.auth.models import User
 # Cambia estos datos por los que tú quieras para tu equipo
 USERNAME = 'admin'
 EMAIL = 'admin@fitdata.com'
-PASSWORD = 'FitData2025!' 
+PASSWORD = 'Fitdata2025!' 
 
 def create_admin():
     if not User.objects.filter(username=USERNAME).exists():
