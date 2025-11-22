@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
 
-// Recibimos 'refreshTrigger' para saber cuándo recargar
 function UserMembershipList({ refreshTrigger }) {
   const [assignments, setAssignments] = useState([]);
-  const [searchTerm, setSearchTerm] = useState(''); // Estado para el buscador
+  const [searchTerm, setSearchTerm] = useState(''); 
   const API_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000';
 
   const fetchAssignments = async () => {
@@ -24,7 +23,7 @@ function UserMembershipList({ refreshTrigger }) {
 
   useEffect(() => {
     fetchAssignments();
-  }, [refreshTrigger]); // Se ejecuta cuando cambia el trigger
+  }, [refreshTrigger]); 
 
   // Lógica de Filtrado
   const filteredAssignments = assignments.filter(item => {
@@ -43,7 +42,7 @@ function UserMembershipList({ refreshTrigger }) {
   return (
     <div className="bg-gray-800 p-6 rounded-xl shadow-xl mt-6 border-t-4 border-teal-500 text-gray-100">
       <div className="flex flex-col md:flex-row justify-between items-center mb-6 gap-4">
-        <h2 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-green-400">
+        <h2 className="text-2xl font-bold text-transparent bg-clip-text bg-linear-to-r from-teal-400 to-green-400">
           Estado de Membresías
         </h2>
         
